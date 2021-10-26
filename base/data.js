@@ -1,21 +1,20 @@
 window.audios = [
   {
-    title:
-      'Como começei a programar / Por que criamos a Rocketseat / Nossa Stack',
-    artist: 'Diego Fernandes',
-    image: 'como-comecei.jpg',
-    file: 'como-comecei.mp3'
+    title: 'Bachianas Brasileiras N°5',
+    artist: 'Heitor Villa Lobos',
+    image: 'files/heitor.jpeg',
+    file: 'files/bachianas-brasileiras-n-5.mp3'
   },
   {
-    title: '5 dicas para uma carreira sólida como programador',
-    artist: 'Diego Fernandes',
-    image: '5-dicas-para-uma-carreira-solida-como-programador.jpg',
-    file: '5-dicas-para-uma-carreira-solida-como-programador.mp3'
+    title: 'Bachianas Brasileiras N°5',
+    artist: 'Heitor Villa Lobos',
+    image: 'files/heitor1.jpeg',
+    file: 'files/bachianas-brasileiras-n-5.mp3'
   },
   {
-    title: 'Júnior Pleno ou Sênior, qual a diferença?',
-    artist: 'Diego Fernandes',
-    image: 'junior-pleno-ou-senior-qual-a-diferenca.jpg',
-    file: 'junior-pleno-ou-senior-qual-a-diferenca.mp3'
+    title: 'Bachianas Brasileiras N°5',
+    artist: 'Heitor Villa Lobos',
+    image: 'files/heitor2.jpeg',
+    file: 'files/bachianas-brasileiras-n-5.mp3'
   }
 ]
