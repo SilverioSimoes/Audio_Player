@@ -1,20 +1,20 @@
 const data = [
   {
-    title: 'Bachianas Brasileiras N°5',
+    title: 'Aquarela do Brasil',
+    artist: 'Ary Barroso',
+    image: 'images/ary-barroso.jpeg',
+    file: 'audios/aquarela-do-brasil.mp3'
+  },
+  {
+    title: 'Bachianas Brasileiras N° 2: O Trenzinho do Caipira',
     artist: 'Heitor Villa Lobos',
     image: 'images/heitor.jpeg',
-    file: 'audios/bachianas-brasileiras-n-5.mp3'
+    file: 'audios/bachianas-brasileiras-n-2-o-trenzinho-do-caipira.mp3'
   },
   {
-    title: 'Bachianas Brasileiras N°5',
+    title: 'Bachianas Brasileiras N°5: Cantinela',
     artist: 'Heitor Villa Lobos',
     image: 'images/heitor1.jpeg',
-    file: 'audios/bachianas-brasileiras-n5.mp3'
-  },
-  {
-    title: 'Bachianas Brasileiras N°5',
-    artist: 'Heitor Villa Lobos',
-    image: 'images/heitor2.jpeg',
-    file: 'audios/bachianas-brasileiras-n-5.mp3'
+    file: 'audios/bachianas-brasileiras-n-5-cantinela.mp3'
   }
 ]
