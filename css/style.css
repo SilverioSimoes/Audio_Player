@@ -17,6 +17,12 @@ h4 {
   padding: 12px;
 }
 
+audio {
+  width: 100%;
+  margin-top: 30px;
+  border-radius: 4px;
+}
+
 .card {
   box-shadow: none;
   margin: 0;
@@ -26,12 +32,15 @@ h4 {
   height: 200px;
 }
 
+#audio-time {
+  margin-left: 10px;
+}
+
 #buttons {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-
-  /* height: 35px; */
+  margin-top: 5px;
 }
 
 #buttons button {
@@ -41,14 +50,26 @@ h4 {
   justify-items: center;
 }
 
-#control {
+/*#control {
   display: flex;
   box-sizing: border-box;
   align-items: center;
   justify-content: space-around;
+  margin: 30px 5px 0 0;
+  width: 100%;
+  border-radius: 4px;
 
-  margin: 30px 0 0 0;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+
+  background-color: rgba(99, 107, 114, 0.93);
 }
+
+#control,
+#progress-control,
+#volume-control {
+  cursor: pointer;
+} */
 
 #playerOn {
   background-color: white;
@@ -63,7 +84,12 @@ h4 {
   font-size: 0.65rem;
 }
 
-#progress {
+#loop-all-audios,
+#loop-current-audio {
+  color: white;
+}
+
+/* #progress {
   display: flex;
   justify-content: center;
 
@@ -77,10 +103,8 @@ h4 {
 #volume {
   display: flex;
   justify-content: center;
-
-  margin: 0 0 10px 10px;
 }
 
 #volume-control {
   width: 50%;
-}
+} */

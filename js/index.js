@@ -1,85 +1,106 @@
 let i = 0
-let playing = false
+let loop = false
 const image = document.querySelector('#image')
-const audio = new Audio(data[i].file)
-const currentAudio = audio
-const audioTime = document.querySelector('#audio-time')
-const audioDuration = document.querySelector('#audio-duration')
+const audio = document.querySelector('#audio-data')
 const title = document.querySelector('#title')
 const artist = document.querySelector('#artist')
 const previous = document.querySelector('#previous')
 const playElement = document.querySelector('#play')
-const pauseElement = document.querySelector('#pause')
 const stopElement = document.querySelector('#stop')
+const loopAudio = document.querySelector('#loop-current-audio')
+const loopAll = document.querySelector('#loop-all-audios')
 const next = document.querySelector('#next')
+const currentAudio = audio
 
 function currentAudioData() {
   image.src = data[i].image
   audio.src = data[i].file
-  currentAudio
+  currentAudio.volume = 0.05
   title.innerText = data[i].title
   artist.innerText = data[i].artist
-  audioTime.innerText = currentAudio.currentTime
-  audioDuration.innerText = currentAudio.duration
 }
 
 function playAudio() {
-  playing = true
   currentAudio.play()
-}
-
-function pauseAudio() {
-  playing = false
-  currentAudio.pause()
 }
 
 function prevAudio() {
   i--
   if (i >= 0) {
-    if (playing) {
-      currentAudioData()
-      playAudio()
-    } else currentAudioData()
+    currentAudioData()
   } else {
     i = data.length - 1
-    if (playing) {
-      currentAudioData()
-      playAudio()
-    } else currentAudioData()
+    currentAudioData()
   }
 }
 
 function nextAudio() {
   i++
   if (i < data.length) {
-    if (playing) {
-      currentAudioData()
-      playAudio()
-    } else {
-      currentAudioData()
-    }
+    currentAudioData()
   } else {
     i = 0
-    if (playing) {
-      currentAudioData()
-      playAudio()
-    } else currentAudioData()
+    currentAudioData()
   }
 }
 
 function stopAudio() {
-  playing = false
   currentAudioData()
 }
 
-currentAudioData()
+function loopCurrentAudio() {
+  if (currentAudio.loop === false && loopAudio.style.color === 'white') {
+    currentAudio.loop = true
+    loopAudio.style.color = 'green'
+  } else {
+    currentAudio.loop = false
+    loopAudio.style.color = 'white'
+  }
+  return currentAudio.loop, loopAudio.style.color
+}
 
-currentAudio.addEventListener('ended', () => {
-  nextAudio()
-  playAudio()
-})
-previous.addEventListener('click', () => prevAudio())
-playElement.addEventListener('click', () => playAudio())
-pauseElement.addEventListener('click', () => pauseAudio())
-stopElement.addEventListener('click', () => stopAudio())
-next.addEventListener('click', () => nextAudio())
+function loopAllAudios() {
+  if (loop === false && loopAll.style.color === 'white') {
+    loop = true
+    loopAll.style.color = 'green'
+  } else {
+    loop = false
+    loopAll.style.color = 'white'
+  }
+  console.log(loop, loopAll.style.color)
+  return loop, loopAll.style.color
+}
+
+function start() {
+  currentAudioData()
+  currentAudio.addEventListener('ended', () => {
+    if (i + 1 < data.length) {
+      nextAudio()
+      playAudio()
+    } else if (loop) {
+      nextAudio()
+      playAudio()
+    }
+  })
+}
+
+function actionsOfButtons() {
+  stopElement.addEventListener('click', () => stopAudio())
+  next.addEventListener('click', () => {
+    if (!currentAudio.paused) {
+      nextAudio()
+      playAudio()
+    } else nextAudio()
+  })
+  previous.addEventListener('click', () => {
+    if (!currentAudio.paused) {
+      prevAudio()
+      playAudio()
+    } else prevAudio()
+  })
+  loopAudio.addEventListener('click', () => loopCurrentAudio())
+  loopAll.addEventListener('click', () => loopAllAudios())
+}
+
+start()
+actionsOfButtons()
