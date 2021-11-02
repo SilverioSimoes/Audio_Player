@@ -1,5 +1,5 @@
 let i = 0
-let loop = false
+let loopInfinite = false
 const image = document.querySelector('#image')
 const audio = document.querySelector('#audio-data')
 const title = document.querySelector('#title')
@@ -56,19 +56,19 @@ function loopCurrentAudio() {
     currentAudio.loop = false
     loopAudio.style.color = 'white'
   }
-  return currentAudio.loop, loopAudio.style.color
+  console.log(currentAudio.loop, loopAudio.style.color)
 }
 
 function loopAllAudios() {
-  if (loop === false && loopAll.style.color === 'white') {
-    loop = true
+  let color = ''
+  if (loopInfinite === false && loopAll.style.color === 'white') {
+    loopInfinite = true
     loopAll.style.color = 'green'
   } else {
-    loop = false
+    loopInfinite = false
     loopAll.style.color = 'white'
   }
-  console.log(loop, loopAll.style.color)
-  return loop, loopAll.style.color
+  console.log(loopInfinite, loopAll.style.color)
 }
 
 function start() {
@@ -77,7 +77,7 @@ function start() {
     if (i + 1 < data.length) {
       nextAudio()
       playAudio()
-    } else if (loop) {
+    } else if (loopInfinite) {
       nextAudio()
       playAudio()
     }
